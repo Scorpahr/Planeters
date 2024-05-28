@@ -9,4 +9,6 @@ class Planet < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :max_person, presence: true, numericality: { only_integer: true, greater_than: 0 }
+
+  scope :by_id, -> { sort }
 end
