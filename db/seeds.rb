@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Planet.destroy_all
 
 Planet.create(name: "Giggletopia", image: "https://www.journaldugeek.com/app/uploads/2023/10/jumbos-jwst.jpg", location: "Cratère des Rires", description: "Une planète où tout est fait de gelée rebondissante, même les montagnes ! Les habitants, les Zygomatiens, passent leur journée à sauter et à faire des acrobaties dans les airs.", price: 105690, max_person: 150)
 Planet.create(name: "Wobbletron", image: "https://portail.free.fr/_next/image/?url=https%3A%2F%2Fcdn.tools.scw.iliad.fr%2Filiad-portail%2Fcontent%2Fuploads%2F2024%2F02%2Ffb00378d16-50212299-planetes-geantes-doubles.jpg&w=1920&q=75", location: "Gouffre des Éclats", description: " Une planète où le sol est couvert de peluches géantes. Les arbres sont des sucres d'orge et les rivières coulent de chocolat chaud. Les Rigoloniens organisent des fêtes de rire tous les soirs.", price: 766790, max_person: 27)
