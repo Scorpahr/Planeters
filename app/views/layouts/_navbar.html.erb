@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon container-fluid">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag("logo.png") %>
     <% end %>
 
@@ -13,14 +13,14 @@
       <%# if user_signed_in? %>
       <div class="d-flex">
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Home", "/", class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Planètes", "#", class: "nav-link" %>
         </li>
         </div>
       <li class="nav-item-login ml-auto"> <!-- Utilisation de la classe ml-auto -->
-        <%= link_to "Log-In", "#", class: "nav-link" %>
+        <%= link_to "Log-In", "users/sign_in", class: "nav-link" %>
       </li>
     </ul>
 </div>
