@@ -1,3 +1,38 @@
+
+
+<div class="container" >
+  <div class="row">
+    <% @planets.each do |planet| %>
+      <div class="col-sm-4 my-3">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <div class="h-3">
+              <img src=<%= planet.image %> alt=<%= planet.name %> class="img-fluid mh-100">
+            </div>
+            <div >
+              <h3 class="text-center"><%= planet.name %></h3>
+              <p data-controller="description-planet" id='<%= planet.id %>' data-action="click->description-planet#fire" data-description-planet-description-value='<%= planet.description %>'><%= planet.description.first(30) %>...</p>
+              <p class="d-flex d-row justify-content-center">
+                <i class="fa-solid fa-map"></i>
+                <%= planet.location %>
+              </p>
+              <ul class="d-flex d-row justify-content-between">
+                <li  style="list-style: none">
+                  <i class="fa-solid fa-users"></i>
+                  <%= planet.max_person %>
+                </li>
+                <li  style="list-style: none">
+                  <i class="fa-solid fa-money-bill"></i>
+                  <%= planet.price %> M$
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <div data-controller="toggle" class="mt-5">
   <button class="btn btn-outline-primary" data-toggle-target="togglableElement" data-action="click->toggle#fire">Add a new planet</button>
 

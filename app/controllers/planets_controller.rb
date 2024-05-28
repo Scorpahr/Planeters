@@ -2,7 +2,7 @@ class PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :destroy, :edit, :update]
 
   def index
-    @planets = Planet.all
+    @planets = Planet.by_id
     @planet = Planet.new
   end
 
