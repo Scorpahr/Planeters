@@ -3,6 +3,7 @@ class PlanetsController < ApplicationController
 
   def index
     @planets = Planet.by_id
+    @planet = Planet.new
   end
 
   def show
