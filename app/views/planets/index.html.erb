@@ -1,35 +1,7 @@
 <div data-controller="toggle" class="mt-5">
-  <button class="btn btn-outline-primary" data-toggle-target="togglableElement" data-action="click->toggle#fire">Add a new planet</button>
+    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new planet</button>
 
-  <%= render "form", planet: @planet %>
-</div>
-
-<div data-toggle-target="togglableElement" class="d-none">
-  <%= form_with(model: @planet, local: true) do |form| %>
-    <div class="form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :location %>
-      <%= form.text_field :location, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :description %>
-      <%= form.text_area :description, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :price %>
-      <%= form.number_field :price, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :max_person %>
-      <%= form.number_field :max_person, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :image %>
-      <%= form.text_field :image, class: "form-control" %>
-    </div>
-    <%= form.submit "Submit", class: "btn btn-primary" %>
-  <% end %>
+  <div data-toggle-target="togglableElement" class="d-none">
+    <%= render "form", planet: @planet %>
+  </div>
 </div>
