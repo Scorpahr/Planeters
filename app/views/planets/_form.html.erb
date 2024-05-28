@@ -1,0 +1,11 @@
+
+  <%= simple_form_for @planet do |f| %>
+  <%= f.input :name, label: "Nom de ta planète"%>
+  <%= f.input :location, label: "Localisation de ta planète"%>
+  <%= f.input :description, label: "Description de ta planète"%>
+  <%= f.input :price, label: "Prix de la planète"%>
+  <%= f.input :max_person, label: "Nombre de personne maximum"%>
+  <%= f.input :image, label: "Image de ta planète"%>
+
+  <%= f.submit "Ajouter un planète", class: "btn btn-primary" %>
+  <% end %>
