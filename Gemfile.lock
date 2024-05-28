@@ -216,7 +216,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    simple_form (5.3.0)
+    simple_form (5.3.1)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
     sprockets (4.2.1)
