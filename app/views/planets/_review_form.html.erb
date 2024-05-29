@@ -1,0 +1,15 @@
+    <%= form_with(model: [@planet, @planet.reviews.new], url: planet_reviews_path(@planet), local: true) do |form| %>
+      <div>
+        <%= form.label :comment %>
+        <%= form.text_area :comment %>
+      </div>
+
+      <div>
+        <%= form.label :rating %>
+        <%= form.number_field :rating, in: 1..5 %>
+      </div>
+
+      <div>
+        <%= form.submit 'Add Review' %>
+      </div>
+    <% end %>
