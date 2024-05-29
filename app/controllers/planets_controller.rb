@@ -11,6 +11,7 @@ class PlanetsController < ApplicationController
 
   def show
     @reviews = Review.all
+    @reviews = @planet.reviews
   end
 
   def new
