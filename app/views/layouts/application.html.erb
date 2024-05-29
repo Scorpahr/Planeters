@@ -18,8 +18,11 @@
   </head>
 
   <body>
-  <%= render "layouts/navbar" %>
-    <%= yield %>
+    <% unless ["sessions", "registrations"].include?(controller_name) %>
+    <%= render "layouts/navbar" %>
+    <% end %>
+      <%= yield %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render "layouts/footer" %>

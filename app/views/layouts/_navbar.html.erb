@@ -10,7 +10,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav d-flex w-100 justify-content-between">
-      <%# if user_signed_in? %>
+
       <div class="d-flex">
         <li class="nav-item active">
           <%= link_to "Home", "/", class: "nav-link" %>
@@ -19,8 +19,13 @@
           <%= link_to "Planètes", "#", class: "nav-link" %>
         </li>
         </div>
-      <li class="nav-item-login ml-auto"> <!-- Utilisation de la classe ml-auto -->
-        <%= link_to "Log-In", "users/sign_in", class: "nav-link" %>
+      <li class="nav-item-login ml-auto">
+<% if current_user %>
+<%= button_to "Déconnexion", destroy_user_session_path, method: :delete  %>
+<% else %>
+    <%= button_to "Connexion", new_user_session_path, method: :get , class: "nav-link" %>
+<% end %>
+
       </li>
     </ul>
 </div>
