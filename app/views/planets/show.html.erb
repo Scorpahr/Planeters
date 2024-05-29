@@ -1,0 +1,83 @@
+
+<div class="container my-3">
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="h-3">
+        <img src=<%= @planet.image %> alt=<%= @planet.name %> class="mh-100 show_image">
+      </div>
+      <div >
+        <h3 class="text-center"><%= @planet.name %></h3>
+        <p id='<%= @planet.id %>'><%= @planet.description %>...</p>
+        <p class="d-flex d-row justify-content-center">
+          <i class="fa-solid fa-map"></i>
+          <%= @planet.location %>
+        </p>
+        <ul class="d-flex d-row justify-content-between">
+          <li  style="list-style: none">
+            <i class="fa-solid fa-users"></i>
+            <%= @planet.max_person %>
+          </li>
+          <li  style="list-style: none">
+            <i class="fa-solid fa-money-bill"></i>
+            <%= @planet.price %> M$
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <% @reviews.each do |review| %>
+      <div class="col-sm-4 my-3">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <div >
+              <p>sldkzeljkbgfdipozeifjhugy<%= review.comment %></p>
+              <ul class="d-flex d-row justify-content-between">
+                <li style="list-style: none">
+                  <%= review.users.email %>
+                </li>
+                <li  style="list-style: none">
+                  <%= review.rating %> ⭐
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-sm-4 my-3">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <div >
+              <p>On peut manger de la bonne choucroutesur cette planète!</p>
+              <ul class="d-flex d-row justify-content-between">
+                <li style="list-style: none">
+                user
+                </li>
+                <li  style="list-style: none">
+                  5⭐
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 my-3">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <div >
+              <p>Epoustouflant!</p>
+              <ul class="d-flex d-row justify-content-between">
+                <li style="list-style: none">
+                anonym
+                </li>
+                <li  style="list-style: none">
+                  4⭐
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

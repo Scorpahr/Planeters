@@ -1,3 +1,15 @@
+<% if user_signed_in? %>
+  <div data-controller="toggle" class="mt-5">
+    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new planet</button>
+
+
+<%# Creation of card of planet to list them %>
+  <div data-toggle-target="togglableElement" class="d-none">
+    <%= render "form", planet: @planet %>
+  </div>
+</div>
+<% end %>
+
 <div class="container" >
   <div class="row">
     <% @planets.each do |planet| %>
@@ -5,11 +17,13 @@
         <div class="card h-100 shadow">
           <div class="card-body">
             <div class="h-3">
-              <img src=<%= planet.image %> alt=<%= planet.name %> class="img-fluid mh-100">
+              <%= link_to planet_path(planet) do%>
+                <img src=<%= planet.image %> alt=<%= planet.name %> class="img-fluid mh-100 rounded">
+              <% end %>
             </div>
             <div >
               <h3 class="text-center"><%= planet.name %></h3>
-              <p data-controller="description-planet" id='<%= planet.id %>' data-action="click->description-planet#fire" data-description-planet-description-value='<%= planet.description %>'><%= planet.description.first(30) %>...</p>
+              <p data-controller="description-planet" class="planet_desc" id='<%= planet.id %>' data-action="click->description-planet#fire" data-description-planet-description-value='<%= planet.description %>'><%= planet.description.first(30) %>...</p>
               <p class="d-flex d-row justify-content-center">
                 <i class="fa-solid fa-map"></i>
                 <%= planet.location %>
@@ -31,10 +45,3 @@
       </div>
     <% end %>
   </div>
-<div data-controller="toggle" class="mt-5">
-    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new planet</button>
-
-  <div data-toggle-target="togglableElement" class="d-none">
-    <%= render "form", planet: @planet %>
-  </div>
-</div>
