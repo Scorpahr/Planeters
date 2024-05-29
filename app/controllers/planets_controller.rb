@@ -1,6 +1,9 @@
 class PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :destroy, :edit, :update]
 
+  # ajoute une condition pour que l'utilisateur soit connecté pour accéder aux pages new et edit.
+  before_action :authenticate_user!, only: [:new, :edit]
+
   def index
     @planets = Planet.by_id
     @planet = Planet.new
