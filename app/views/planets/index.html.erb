@@ -22,7 +22,7 @@
             </div>
             <div >
               <h3 class="text-center"><%= planet.name %></h3>
-              <p data-controller="description-planet" id='<%= planet.id %>' data-action="click->description-planet#fire" data-description-planet-description-value='<%= planet.description %>'><%= planet.description.first(30) %>...</p>
+              <p data-controller="description-planet" class="planet_desc" id='<%= planet.id %>' data-action="click->description-planet#fire" data-description-planet-description-value='<%= planet.description %>'><%= planet.description.first(30) %>...</p>
               <p class="d-flex d-row justify-content-center">
                 <i class="fa-solid fa-map"></i>
                 <%= planet.location %>
