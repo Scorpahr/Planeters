@@ -2,8 +2,14 @@
 <div class="container my-3">
   <div class="card shadow">
     <div class="card-body">
-      <div class="h-3">
+      <div class="h-3 d-flex d-row justify-content-between">
         <img src=<%= @planet.image %> alt=<%= @planet.name %> class="mh-100 show_image">
+        <%= simple_form_for [@planet, @booking] do |f| %>
+          <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" }, class: "d-none" }%>
+            <%= f.submit %>
+        <% end %>
       </div>
       <div >
         <h3 class="text-center"><%= @planet.name %></h3>
@@ -31,10 +37,10 @@
         <div class="card h-100 shadow">
           <div class="card-body">
             <div >
-              <p>sldkzeljkbgfdipozeifjhugy<%= review.comment %></p>
+              <p><%= review.comment %></p>
               <ul class="d-flex d-row justify-content-between">
                 <li style="list-style: none">
-                  <%= review.users.email %>
+                  <%# <%= review.users.email %>
                 </li>
                 <li  style="list-style: none">
                   <%= review.rating %> ⭐
@@ -80,4 +86,12 @@
         </div>
       </div>
   </div>
+  <% if user_signed_in? %>
+  <div data-controller="toggle" class="mt-5">
+    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a review</button>
+    <div data-toggle-target="togglableElement" class="d-none">
+    <%= render "review_form", review: @review %>
+    </div>
+  </div>
+<% end %>
 </div>

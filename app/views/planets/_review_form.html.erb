@@ -1,0 +1,13 @@
+    <%= simple_form_for [@planet, @planet.reviews.new], url: planet_reviews_path(@planet), local: true do |f| %>
+  <div>
+    <%= f.input :comment, as: :text %>
+  </div>
+
+  <div>
+    <%= f.input :rating, as: :integer, in: 1..5 %>
+  </div>
+
+  <div>
+    <%= f.button :submit, 'Add Review' %>
+  </div>
+<% end %>

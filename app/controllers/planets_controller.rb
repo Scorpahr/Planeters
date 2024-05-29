@@ -7,10 +7,14 @@ class PlanetsController < ApplicationController
   def index
     @planets = Planet.by_id
     @planet = Planet.new
+    @user = current_user
   end
 
   def show
     @reviews = Review.all
+    @booking = Booking.new
+    @reviews = @planet.reviews
+
   end
 
   def new
