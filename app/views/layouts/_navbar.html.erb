@@ -21,6 +21,7 @@
         </div>
       <li class="nav-item-login ml-auto">
 <% if current_user %>
+<span class=me-2><%= current_user.name%></span>
 <%= button_to "Déconnexion", destroy_user_session_path, method: :delete  %>
 <% else %>
     <%= button_to "Connexion", new_user_session_path, method: :get , class: "nav-link" %>
