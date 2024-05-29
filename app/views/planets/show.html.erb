@@ -86,12 +86,7 @@
         </div>
       </div>
   </div>
-</div>
-
-
-
-
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
   <div data-controller="toggle" class="mt-5">
     <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a review</button>
     <div data-toggle-target="togglableElement" class="d-none">
@@ -99,21 +94,4 @@
     </div>
   </div>
 <% end %>
-
-  <hr>
-
-
-    <hr>
-    <h2>Reviews</h2>
-    <% if @reviews.any? %>
-      <ul>
-        <% @reviews.each do |review| %>
-          <li>
-            <strong>Rating:</strong> <%= review.rating %><br>
-            <strong>Comment:</strong> <%= review.comment %>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>No reviews for this list.</p>
-    <% end %>
+</div>

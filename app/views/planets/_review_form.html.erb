@@ -1,15 +1,13 @@
-    <%= form_with(model: [@planet, @planet.reviews.new], url: planet_reviews_path(@planet), local: true) do |form| %>
-      <div>
-        <%= form.label :comment %>
-        <%= form.text_area :comment %>
-      </div>
+    <%= simple_form_for [@planet, @planet.reviews.new], url: planet_reviews_path(@planet), local: true do |f| %>
+  <div>
+    <%= f.input :comment, as: :text %>
+  </div>
 
-      <div>
-        <%= form.label :rating %>
-        <%= form.number_field :rating, in: 1..5 %>
-      </div>
+  <div>
+    <%= f.input :rating, as: :integer, in: 1..5 %>
+  </div>
 
-      <div>
-        <%= form.submit 'Add Review' %>
-      </div>
-    <% end %>
+  <div>
+    <%= f.button :submit, 'Add Review' %>
+  </div>
+<% end %>
