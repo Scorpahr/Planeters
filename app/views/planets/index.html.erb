@@ -1,4 +1,12 @@
+<% if user_signed_in? %>
+  <div data-controller="toggle" class="mt-5">
+    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new planet</button>
 
+  <div data-toggle-target="togglableElement" class="d-none">
+    <%= render "form", planet: @planet %>
+  </div>
+</div>
+<% end %>
 
 <div class="container" >
   <div class="row">
@@ -7,7 +15,7 @@
         <div class="card h-100 shadow">
           <div class="card-body">
             <div class="h-3">
-              <img src=<%= planet.image %> alt=<%= planet.name %> class="img-fluid mh-100">
+              <img src=<%= planet.image %> alt=<%= planet.name %> class="img-fluid mh-100 rounded">
             </div>
             <div >
               <h3 class="text-center"><%= planet.name %></h3>
@@ -33,10 +41,3 @@
       </div>
     <% end %>
   </div>
-<div data-controller="toggle" class="mt-5">
-    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new planet</button>
-
-  <div data-toggle-target="togglableElement" class="d-none">
-    <%= render "form", planet: @planet %>
-  </div>
-</div>
