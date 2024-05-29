@@ -7,6 +7,7 @@ class PlanetsController < ApplicationController
   def index
     @planets = Planet.by_id
     @planet = Planet.new
+    @user = current_user
   end
 
   def show
