@@ -3,13 +3,24 @@
   <div class="card shadow">
     <div class="card-body">
       <div class="h-3 d-flex d-row justify-content-between">
-        <img src=<%= @planet.image %> alt=<%= @planet.name %> class="mh-100 show_image">
-        <%= simple_form_for [@planet, @booking] do |f| %>
-          <%= f.input :start_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" }, class: "d-none" }%>
-            <%= f.submit %>
-        <% end %>
+
+<%# Gestion de l'image la planètes %>
+<% if @planet.photo.attached? %>
+    <%= cl_image_tag @planet.photo.key, height: 300, width: 400, crop: :fill, class: 'img-fluid mh-100 rounded' %>
+<% else %>
+    <img src="<%= @planet.image %>" alt="<%= @planet.name %>" class="img-fluid mh-100 rounded" height=300 width=300>
+<% end %>
+<%# ---------------------- %>
+           <%= simple_form_for [@planet, @booking] do |f| %>
+            <%= f.input :start_date,
+              as: :string,
+              label: false,
+              input_html: { data: { controller: "datepicker" }, class: "d-none" }%>
+              <% if user_signed_in? %>
+                <%= f.submit value='Réservation'%>
+              <% end %>
+          <% end %>
+
       </div>
       <div >
         <h3 class="text-center"><%= @planet.name %></h3>
@@ -49,7 +60,7 @@
               <p><%= review.comment %></p>
               <ul class="d-flex d-row justify-content-between">
                 <li style="list-style: none">
-                  <%# <%= review.users.email %>
+                  <%= review.user.name %>
                 </li>
                 <li  style="list-style: none">
                   <%= review.rating %> ⭐

@@ -3,6 +3,9 @@ class Planet < ApplicationRecord
   has_many :reviews
   has_many :favorites
 
+  # Cloudinary
+  has_one_attached :photo
+
   validates :name, presence: true, uniqueness: true
   # validates :image, presence: true
   validates :location, presence: true
