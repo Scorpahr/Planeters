@@ -8,6 +8,7 @@ class PlanetsController < ApplicationController
     @planets = Planet.by_id
     @planet = Planet.new
     @user = current_user
+
   end
 
   def show
@@ -15,6 +16,11 @@ class PlanetsController < ApplicationController
     @booking = Booking.new
     @reviews = @planet.reviews
 
+    @planet = Planet.find(params[:id])
+    @marker = {
+      latitude: @planet.latitude,
+      longitude: @planet.longitude
+    }
   end
 
   def new
