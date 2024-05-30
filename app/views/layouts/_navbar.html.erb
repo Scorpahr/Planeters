@@ -10,16 +10,22 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav d-flex w-100 justify-content-between">
+      <div class="d-flex">
+        <li class="nav-item active">
+          <%= link_to "Page d'accueil", "/", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Planètes", "#", class: "nav-link" %>
+        </li>
+        </div>
+      <li class="nav-item-login ml-auto">
+<% if current_user %>
+<span class=me-2><%= current_user.name%></span>
+<%= button_to "Déconnexion", destroy_user_session_path, method: :delete  %>
+<% else %>
+    <%= button_to "Connexion", new_user_session_path, method: :get , class: "nav-link" %>
+<% end %>
 
-        <div class="d-flex">
-          <li class="nav-item active">
-            <%= link_to "Page d'accueil", "/", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Planètes", "#", class: "nav-link" %>
-          </li>
-          </div>
-        <li class="nav-item-login ml-auto">
 
         <% if current_user %>
           <%= button_to "Mes réservations", bookings_path, method: :get %>
