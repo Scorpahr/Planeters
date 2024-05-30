@@ -4,11 +4,16 @@
     <div class="card-body">
       <div class="h-3 d-flex d-row justify-content-between">
         <img src=<%= @planet.image %> alt=<%= @planet.name %> class="mh-100 show_image">
-        <%= simple_form_for [@planet, @booking] do |f| %>
-          <%= f.input :start_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" }, class: "d-none" }%>
-            <%= f.submit %>
+        <%= turbo_frame_tag "date_form" do%>
+          <%= simple_form_for [@planet, @booking] do |f| %>
+            <%= f.input :start_date,
+              as: :string,
+              label: false,
+              input_html: { data: { controller: "datepicker" }, class: "d-none" }%>
+              <% if user_signed_in? %>
+                <%= f.submit value='Réservation'%>
+              <% end %>
+          <% end %>
         <% end %>
       </div>
       <div >
