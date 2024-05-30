@@ -3,7 +3,15 @@
   <div class="card shadow">
     <div class="card-body">
       <div class="h-3 d-flex d-row justify-content-between">
-        <img src=<%= @planet.image %> alt=<%= @planet.name %> class="mh-100 show_image">
+
+<%# Gestion de l'image la planètes %>
+<% if @planet.photo.attached? %>
+    <%= cl_image_tag @planet.photo.key, height: 300, width: 400, crop: :fill, class: 'img-fluid mh-100 rounded' %>
+<% else %>
+    <img src="<%= @planet.image %>" alt="<%= @planet.name %>" class="img-fluid mh-100 rounded" height=300 width=300>
+<% end %>
+<%# ---------------------- %>
+
         <%= simple_form_for [@planet, @booking] do |f| %>
           <%= f.input :start_date,
             as: :string,

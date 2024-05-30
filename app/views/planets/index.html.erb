@@ -21,7 +21,11 @@
           <div class="card-body">
             <div class="h-3">
               <%= link_to planet_path(planet) do%>
-                <img src=<%= planet.image %> alt=<%= planet.name %> class="img-fluid mh-100 rounded">
+                <% if planet.photo.attached? %>
+                  <%= cl_image_tag planet.photo.key, class: "img-fluid mh-100 rounded"%>
+                <% else %>
+                  <img src=<%= planet.image %> alt=<%= planet.name %> class="img-fluid mh-100 rounded">
+                <% end %>
               <% end %>
             </div>
             <div >
