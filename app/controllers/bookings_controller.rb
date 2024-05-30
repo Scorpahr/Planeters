@@ -19,12 +19,13 @@ class BookingsController < ApplicationController
     @booking.user_id = @user
 
     @booking.save
-    redirect_to planet_path(@planet)
+    redirect_to bookings_path
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
+    redirect_to bookings_path
   end
 
   private
