@@ -45,6 +45,12 @@
                   <%= planet.price %> M$
                 </li>
               </ul>
+
+              <% if user_signed_in? %>
+                <% if current_user.email == "stephane@wivzem.fr" %>
+                  <%= link_to 'delete', planet_path(planet), data: {turbo_method: :delete, turbo_confirm: "Supprimer la planète?"}, class: "none_decoration" %>
+                <% end %>
+              <% end %>
             </div>
 
           </div>
