@@ -11,4 +11,6 @@ class Planet < ApplicationRecord
   validates :max_person, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   scope :by_id, -> { sort }
+
+  geocoded_by latitude: :latitude, longitude: :longitude
 end
