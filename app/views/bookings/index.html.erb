@@ -1,0 +1,34 @@
+
+
+<div class="container">
+  <div class="row">
+    <h1 class="card my-3 text-center">Mes réservations</h1>
+    <%# Send the different booking  %>
+    <% @bookings.each do |booking| %>
+      <div class="my-3 ">
+        <div class="card h-100 shadow ">
+          <div class="card-body">
+            <div class="d-flex d-row w-100">
+              <img src=<%= booking.planet.image %> alt=<%= booking.planet.name %> class="mh-10 booking_image">
+              <div>
+                <h2 class="text-center"> <%= booking.planet.name %></h2>
+                <ul class="d-inline-flex d-row gap-5">
+                  <li style="list-style: none">
+                    <h4>Début de la réservation :</h4> <%= booking.start_date %>
+                  </li>
+                  <li  style="list-style: none">
+                    <h4>Fin de la réservation :</h4><%= booking.end_date %>
+                  </li>
+                </ul>
+              </div>
+              <%# Delete booking %>
+              <div class="d-flex align-items-end">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<%= link_to '🗑️', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Supprimer la réservation?"}, class: "none_decoration" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
