@@ -5,7 +5,7 @@
   <%= f.input :description, label: "Description de ta planète"%>
   <%= f.input :price, label: "Prix de la planète"%>
   <%= f.input :max_person, label: "Nombre de personne maximum"%>
-
+  <%= f.input :photo, as: :file, label: "Ajouter des photos" %>
 
   <%= f.submit "Ajouter un planète", class: "btn btn-primary" %>
   <% end %>

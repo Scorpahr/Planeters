@@ -280,6 +280,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activestorage
   bootsnap
   bootstrap (~> 5.2)
   cloudinary
