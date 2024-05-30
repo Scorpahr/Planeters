@@ -4,7 +4,6 @@
     <div class="card-body">
       <div class="h-3 d-flex d-row justify-content-between">
         <img src=<%= @planet.image %> alt=<%= @planet.name %> class="mh-100 show_image">
-        <%= turbo_frame_tag "date_form" do%>
           <%= simple_form_for [@planet, @booking] do |f| %>
             <%= f.input :start_date,
               as: :string,
@@ -14,7 +13,6 @@
                 <%= f.submit value='Réservation'%>
               <% end %>
           <% end %>
-        <% end %>
       </div>
       <div >
         <h3 class="text-center"><%= @planet.name %></h3>
@@ -45,7 +43,7 @@
               <p><%= review.comment %></p>
               <ul class="d-flex d-row justify-content-between">
                 <li style="list-style: none">
-                  <%# <%= review.users.email %>
+                  <%= review.user.name %>
                 </li>
                 <li  style="list-style: none">
                   <%= review.rating %> ⭐
