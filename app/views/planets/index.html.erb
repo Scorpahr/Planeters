@@ -49,14 +49,14 @@
               <% end %>
             </div>
             <div >
-              <h3 class="text-center"><%= planet.name %></h3>
-              <p data-controller="description-planet" class="planet_desc" id='<%= planet.id %>' data-action="click->description-planet#fire" data-description-planet-description-value='<%= planet.description %>'><%= planet.description.first(30) %>...</p>
+              <h3 class="text-center planet-name"><%= planet.name %></h3>
+              <p class= "planet-desc" data-controller="description-planet" class="planet_desc" id='<%= planet.id %>' data-action="click->description-planet#fire" data-description-planet-description-value='<%= planet.description %>'><%= planet.description %>...</p>
               <p class="d-flex d-row justify-content-center">
                 📍
                 <%= planet.location %>
               </p>
-              <ul class="d-flex d-row justify-content-between">
-                <li  style="list-style: none">
+              <ul class="d-flex d-row justify-content-between max-person">
+                <li style="list-style: none">
                   <i class="fa-solid fa-users"></i>
                   <%= planet.max_person %>
                 </li>
