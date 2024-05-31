@@ -17,7 +17,7 @@
         </div>
       <li class="nav-item-login ml-auto txt-col">
         <% if current_user %>
-         <span class="nav-link txt-col"> Bienvenue
+         <span class="nav-link txt-col" style="padding-top: 14px"> Bienvenue
          <%= current_user.name%>
          </span>
          <%= button_to "Mes réservations", bookings_path, method: :get , class: "button-style custom-button" %>
