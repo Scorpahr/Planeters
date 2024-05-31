@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon container-fluid">
+<div id="navbar" class="navbar navbar-expand-sm navbar-light navbar-lewagon container-fluid">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag("logo.png") %>
@@ -14,17 +14,14 @@
         <li class="nav-item active">
           <%= link_to "Page d'accueil", "/", class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Planètes", "#", class: "nav-link" %>
-        </li>
         </div>
       <li class="nav-item-login ml-auto">
         <% if current_user %>
           <span class=me-2><%= current_user.name%></span>
-          <%= button_to "Mes réservations", bookings_path, method: :get %>
-          <%= button_to "Déconnexion", destroy_user_session_path, method: :delete  %>
+          <%= button_to "Mes réservations", bookings_path, method: :get , class: "button-style" %>
+          <%= button_to "Déconnexion", destroy_user_session_path, method: :delete , class: "button-style" %>
         <% else %>
-            <%= button_to "Connexion", new_user_session_path, method: :get , class: "nav-link" %>
+            <%= button_to "Connexion", new_user_session_path, method: :get , class: "nav-link button-style" %>
         <% end %>
 
         </li>
