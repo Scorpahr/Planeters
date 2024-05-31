@@ -1,4 +1,11 @@
 
+<div style="text-align: center;" class="main-header">
+  <%= image_tag('planeters.png', style: 'width: 40%;') %>
+</div>
+
+<div class="planeters">
+    <p>Envie d'une expérience hors du commun ? Planeters, en partenariat avec la <strong class="nasa">NASA</strong>, vous offre la possibilité de louer un weekend sur une planète extraordinaire. Explorez de nouveaux horizons et vivez des aventures inoubliables.</p>
+</div>
 
 <%# Creation of card of planet to list them %>
 <div class="container" >
@@ -50,6 +57,11 @@
             </div>
             <div >
               <h3 class="text-center planet-name"><%= planet.name %></h3>
+
+                <div class="d-flex justify-content-center">
+                    <a href="<%= planet_path(planet) %>" class="btn btn-primary custom-button"><strong>Réserve ton week-end</strong></a>
+                </div>
+
               <p class= "planet-desc" data-controller="description-planet" class="planet_desc" id='<%= planet.id %>' data-action="click->description-planet#fire" data-description-planet-description-value='<%= planet.description %>'><%= planet.description %>...</p>
               <p class="d-flex d-row justify-content-center">
                 📍

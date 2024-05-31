@@ -20,7 +20,7 @@
          <span class="nav-link txt-col"> Bienvenue
          <%= current_user.name%>
          </span>
-         <%= button_to "Mes réservations", bookings_path, method: :get , class: "button-style" %>
+         <%= button_to "Mes réservations", bookings_path, method: :get , class: "button-style custom-button" %>
           <%= button_to "Déconnexion", destroy_user_session_path, method: :delete , class: "button-style" %>
         <% else %>
             <%= button_to "Connexion", new_user_session_path, method: :get , class: "button-style" %>
