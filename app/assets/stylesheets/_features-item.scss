@@ -1,0 +1,16 @@
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  width: 300px;
+  /* Ajustez la largeur selon vos besoins */
+}
+
+.feature-item i {
+  font-size: 48px;
+  /* Taille de l'icône */
+  margin-right: 10px;
+  /* Espace entre l'icône et le texte */
+  color: #ff5a5f;
+  /* Couleur de l'icône (peut être personnalisée) */
+}

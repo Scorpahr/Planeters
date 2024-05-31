@@ -6,4 +6,5 @@ class Booking < ApplicationRecord
   validates :status, presence: true
   validates :planet_id, presence: true
   validates :user_id, presence: true
+  validates :start_date, :end_date, presence: true
 end

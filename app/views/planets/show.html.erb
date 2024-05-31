@@ -2,32 +2,32 @@
 <div class="container my-3">
   <div class="card shadow">
     <div class="card-body">
-      <div class="h-3 d-flex d-row justify-content-between">
+      <div class=" d-flex d-row justify-content-between">
 
-<%# Gestion de l'image la planètes %>
+        <%# Gestion de l'image la planètes %>
         <% if @planet.photo.attached? %>
-            <%= cl_image_tag @planet.photo.key, height: 300, width: 400, crop: :fill, class: 'img-fluid mh-100 rounded' %>
+            <%= cl_image_tag @planet.photo.key, crop: :fill, class: 'mh-100 rounded' %>
         <% else %>
-            <img src="<%= @planet.image %>" alt="<%= @planet.name %>" class="img-fluid mh-100 rounded" height=300 width=300>
+            <img src="<%= @planet.image %>" alt="<%= @planet.name %>" class="mh-100 rounded">
         <% end %>
-<%# ---------------------- %>
-
-          <%= simple_form_for [@planet, @booking] do |f| %>
-            <%= f.input :start_date,
-              as: :string,
-              label: false,
-              input_html: { data: { controller: "datepicker" }, placeholder: "Selection des dates de réservation..." }%>
-              <% if user_signed_in? %>
-                <%= f.submit value='Réservation'%>
-              <% end %>
-          <% end %>
-
+        <%# ---------------------- %>
+        <%# Calendar to booking the planete %>
+        <%= simple_form_for [@planet, @booking] do |f| %>
+          <%= f.input :start_date,
+            as: :string,
+            label: false,
+            input_html: { data: { controller: "datepicker" }, placeholder: "Selection du week-end de réservation..." }%>
+            <% if user_signed_in? %>
+              <%= f.submit value='Réservation'%>
+            <% end %>
+        <% end %>
+        <%# ---------------------- %>
       </div>
       <div >
         <h3 class="text-center"><%= @planet.name %></h3>
         <p id='<%= @planet.id %>'><%= @planet.description %>...</p>
         <p class="d-flex d-row justify-content-center">
-          <i class="fa-solid fa-map"></i>
+          📍
           <%= @planet.location %>
         </p>
         <ul class="d-flex d-row justify-content-between">
@@ -37,7 +37,7 @@
           </li>
           <li  style="list-style: none">
             <i class="fa-solid fa-money-bill"></i>
-            <%= @planet.price %>
+            <%= @planet.price %> €
           </li>
         </div>
         <div class="test" style="width: 100%; height: 400px;"
@@ -49,8 +49,8 @@
         </ul>
       </div>
     </div>
-  </div>
   <div class="row">
+    <%# display the review of the planet %>
     <% @reviews.each do |review| %>
       <div class="col-sm-4 my-3">
         <div class="card h-100 shadow">
@@ -70,12 +70,16 @@
         </div>
       </div>
     <% end %>
+    <%# ---------------------- %>
+    <%# can add review if you are signed %>
+    <% if user_signed_in? %>
+      <div data-controller="toggle" class="mt-5">
+        <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a review</button>
+        <div data-toggle-target="togglableElement" class="d-none">
+        <%= render "review_form", review: @review %>
+        </div>
+      </div>
+    <% end %>
+    <%# ---------------------- %>
   </div>
-  <% if user_signed_in? %>
-  <div data-controller="toggle" class="mt-5">
-    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a review</button>
-    <div data-toggle-target="togglableElement" class="d-none">
-    <%= render "review_form", review: @review %>
-    </div>
-  </div>
-<% end %>
+</div>
