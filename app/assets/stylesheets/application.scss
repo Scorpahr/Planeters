@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 $whiteblue: #dafffb;
 
 @import "body";
@@ -21,5 +22,8 @@ $whiteblue: #dafffb;
 @import "card-border";
 @import "card-body";
 @import "components/button-style";
+@import 'message-container';
+@import 'features-container';
+@import 'feature-text';
 
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");

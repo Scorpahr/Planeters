@@ -2,7 +2,7 @@
 
 <%# Creation of card of planet to list them %>
 <div class="container" >
-
+<%# can add a planet if you are superuser %>
 <% if user_signed_in? %>
     <% if current_user.email == "stephane@wivzem.fr" %>
     <div data-controller="toggle" class="mt-5">
@@ -13,9 +13,29 @@
     </div>
   <% end %>
 <% end %>
+<%# ---------------------- %>
 
   <div class="row">
-    <% @planets.each do |planet| %>
+  <% @planets.each_with_index do |planet, i| %>
+    <%# allowing a div balise every 6 planets %>
+    <% if i > 0 && i % 6 == 0 %>
+      <div class="message-container"><h1><strong>Votre confort sera toujours notre priorité</strong></h1></div>
+      <div class="features-container">
+      <div class="feature-item">
+        <i class="fa-solid fa-skull" style="color: #FFA732;"></i>
+        <span class="feature-text">Garantie sans prédateurs !</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-plane-departure" style="color: #FFA732;"></i>
+        <span class="feature-text">Navette de secours en cas d'urgence</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-children" style="color: #FFA732;"></i>
+        <span class="feature-text">Possibilité de réserver sans enfants</span>
+      </div>
+    </div>
+    <% end %>
+    <%# end of bloc %>
       <div class="col-sm-4 my-3">
         <div class="card h-100 shadow">
           <div class="card-body">
@@ -32,7 +52,7 @@
               <h3 class="text-center"><%= planet.name %></h3>
               <p data-controller="description-planet" class="planet_desc" id='<%= planet.id %>' data-action="click->description-planet#fire" data-description-planet-description-value='<%= planet.description %>'><%= planet.description.first(30) %>...</p>
               <p class="d-flex d-row justify-content-center">
-                <i class="fa-solid fa-map"></i>
+                📍
                 <%= planet.location %>
               </p>
               <ul class="d-flex d-row justify-content-between">
@@ -42,17 +62,16 @@
                 </li>
                 <li  style="list-style: none">
                   <i class="fa-solid fa-money-bill"></i>
-
                   <%= planet.price %> €
-
                 </li>
               </ul>
-
+              <%# can delete a planet if you are superuser %>
               <% if user_signed_in? %>
                 <% if current_user.email == "stephane@wivzem.fr" %>
                   <%= link_to 'delete', planet_destroy_path(planet), data: {turbo_method: :delete, turbo_confirm: "Supprimer la planète?"}, class: "none_decoration" %>
                 <% end %>
               <% end %>
+              <%# ---------------------- %>
             </div>
 
           </div>
@@ -60,3 +79,18 @@
       </div>
     <% end %>
   </div>
+<div class="message-container"><h1><strong>Votre confort sera toujours notre priorité</strong></h1></div>
+      <div class="features-container">
+      <div class="feature-item">
+        <i class="fa-solid fa-calendar-week" style="color: #FFA732;"></i>
+        <span class="feature-text">Un week complet</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-eye-dropper" style="color: #FFA732;"></i>
+        <span class="feature-text">Températures agréables</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-meteor" style="color: #FFA732;"></i>
+        <span class="feature-text">Pluies de météorites fréquentes</span>
+      </div>
+    </div>
