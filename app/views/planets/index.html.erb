@@ -6,7 +6,7 @@
 <% if user_signed_in? %>
     <% if current_user.email == "stephane@wivzem.fr" %>
     <div data-controller="toggle" class="mt-5">
-      <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new planet</button>
+      <button data-action="click->toggle#fire" class="button-style">Ajouter une planète</button>
       <div data-toggle-target="togglableElement" class="d-none">
       <%= render "form", planet: @planet %>
       </div>

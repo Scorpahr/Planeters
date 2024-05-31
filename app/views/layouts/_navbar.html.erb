@@ -12,16 +12,18 @@
       <ul class="navbar-nav d-flex w-100 justify-content-between">
       <div class="d-flex">
         <li class="nav-item active">
-          <%= link_to "Page d'accueil", "/", class: "nav-link" %>
+          <%= link_to "Accueil", "/", class: "nav-link txt-col" %>
         </li>
         </div>
-      <li class="nav-item-login ml-auto">
+      <li class="nav-item-login ml-auto txt-col">
         <% if current_user %>
-          <span class=me-2><%= current_user.name%></span>
-          <%= button_to "Mes réservations", bookings_path, method: :get , class: "button-style" %>
+         <span class="nav-link txt-col"> Bienvenue
+         <%= current_user.name%>
+         </span>
+         <%= button_to "Mes réservations", bookings_path, method: :get , class: "button-style" %>
           <%= button_to "Déconnexion", destroy_user_session_path, method: :delete , class: "button-style" %>
         <% else %>
-            <%= button_to "Connexion", new_user_session_path, method: :get , class: "nav-link button-style" %>
+            <%= button_to "Connexion", new_user_session_path, method: :get , class: "button-style" %>
         <% end %>
 
         </li>

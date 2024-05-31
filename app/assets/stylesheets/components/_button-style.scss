@@ -1,20 +1,20 @@
 .button-style {
-  border-radius: 5px;
-  background-color: #ffa732; /* Orange */
+  border-radius: 4px;
+  background-color: #001c30; /* Same blue as card bg */
   border-style: solid;
-  border-color: #f19419;
+  border-color: #fcfbfa;
   color: white;
-  padding: 15px 32px;
-  margin-left: 10px;
+  padding: 8px 16px;
+  margin-right: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-  font-weight: bolder;
-  width: 100px;
+  font-size: 15px;
+  font-weight: 400;
+  width: 170px;
   height: 50px;
 }
 
 .button-style:hover {
-  background-color: #c27715;
+  opacity: 0.5;
 }
