@@ -10,8 +10,8 @@ class BookingsController < ApplicationController
     @planet = Planet.find(params[:planet_id])
     @user = current_user.id
 
-    @booking.start_date = params[:booking][:start_date].match(/^[0-9]*-[0-9]*-[0-9]* [0-9]*:[0-9]*/).to_s
-    @booking.end_date = params[:booking][:start_date].match(/[0-9]*-[0-9]*-[0-9]* [0-9]*:[0-9]*$/).to_s
+    @booking.start_date = params[:booking][:start_date].match(/^[0-9]*-[0-9]*-[0-9]*/).to_s
+    @booking.end_date = params[:booking][:start_date].match(/[0-9]*-[0-9]*-[0-9]*$/).to_s
 
     @booking.status = 'Réservé'
     @booking.total_price = @planet.price
