@@ -39,9 +39,10 @@
     <% end %>
     <div class="my-3">
       <div class="card shadow px-5 py-2">
-
-        <h3>Prix total des réservations : </h3>
-        <p><%= total_price %> €</p>
+        <div class="d-flex d-row">
+          <h3 class="d-inline" style="margin: 0">Prix total des réservations : </h3>
+          <p class="d-inline" style="align-self: end; font-size: 22px; margin: 0; padding-left: 15px"><%= total_price %> €</p>
+        </div>
 
     </div>
   </div>
