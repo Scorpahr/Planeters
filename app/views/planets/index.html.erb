@@ -15,7 +15,26 @@
 <% end %>
 
   <div class="row">
-    <% @planets.each do |planet| %>
+  <% @planets.each_with_index do |planet, i| %>
+    <%# allowing a div balise every 6 planets %>
+    <% if i > 0 && i % 6 == 0 %>
+      <div class="message-container"><h1><strong>Votre confort sera toujours notre priorité</strong></h1></div>
+      <div class="features-container">
+      <div class="feature-item">
+        <i class="fa-solid fa-skull" style="color: #FFA732;"></i>
+        <span class="feature-text">Garantie sans prédateurs !</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-plane-departure" style="color: #FFA732;"></i>
+        <span class="feature-text">Navette de secours en cas d'urgence</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-children" style="color: #FFA732;"></i>
+        <span class="feature-text">Possibilité de réserver sans enfants</span>
+      </div>
+    </div>
+    <% end %>
+    <%# end of bloc %>
       <div class="col-sm-4 my-3">
         <div class="card h-100 shadow">
           <div class="card-body">
@@ -60,3 +79,18 @@
       </div>
     <% end %>
   </div>
+<div class="message-container"><h1><strong>Votre confort sera toujours notre priorité</strong></h1></div>
+      <div class="features-container">
+      <div class="feature-item">
+        <i class="fa-solid fa-calendar-week" style="color: #FFA732;"></i>
+        <span class="feature-text">Un week complet</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-eye-dropper" style="color: #FFA732;"></i>
+        <span class="feature-text">Températures agréables</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-meteor" style="color: #FFA732;"></i>
+        <span class="feature-text">Pluies de météorites fréquentes</span>
+      </div>
+    </div>
