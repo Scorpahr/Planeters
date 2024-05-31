@@ -1,11 +1,32 @@
 
+<div class="bg-form ">
   <%= simple_form_for @planet do |f| %>
+  <div class="form-type">
   <%= f.input :name, label: "Nom de ta planète"%>
-  <%= f.input :location, label: "Localisation de ta planète"%>
-  <%= f.input :description, label: "Description de ta planète"%>
-  <%= f.input :price, label: "Prix de la planète"%>
-  <%= f.input :max_person, label: "Nombre de personne maximum"%>
-  <%= f.input :photo, as: :file, label: "Ajouter des photos" %>
+</div>
 
-  <%= f.submit "Ajouter un planète", class: "btn btn-primary" %>
+<div class="form-type">
+  <%= f.input :location, label: "Localisation de ta planète"%>
+</div>
+
+<div class="form-type">
+  <%= f.input :description, label: "Description de ta planète"%>
+</div>
+
+<div class="form-type">
+  <%= f.input :price, label: "Prix de la planète"%>
+</div>
+
+<div class="form-type">
+  <%= f.input :max_person, label: "Nombre de personne maximum"%>
+</div>
+
+<div class="form-type">
+  <%= f.input :photo, as: :file, label: "Ajouter des photos" %>
+</div>
+</div>
+
+<div class="txt-col button-env input1">
+  <%= f.submit "Ajouter" %>
+   </div>
   <% end %>

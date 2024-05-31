@@ -77,7 +77,7 @@
     <%# can add review if you are signed %>
     <% if user_signed_in? %>
       <div data-controller="toggle" class="mt-5">
-        <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a review</button>
+        <button data-action="click->toggle#fire" class="button-style">Laisser un avis</button>
         <div data-toggle-target="togglableElement" class="d-none">
         <%= render "review_form", review: @review %>
         </div>
