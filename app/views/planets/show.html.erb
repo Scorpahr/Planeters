@@ -6,25 +6,28 @@
 
         <%# Gestion de l'image la planètes %>
         <% if @planet.photo.attached? %>
-            <%= cl_image_tag @planet.photo.key, crop: :fill, class: 'mh-100 rounded' %>
+            <%= cl_image_tag @planet.photo.key, crop: :fill, class: 'mh-100 rounded card-border show_image' %>
         <% else %>
-            <img src="<%= @planet.image %>" alt="<%= @planet.name %>" class="mh-100 rounded">
+            <img src="<%= @planet.image %>" alt="<%= @planet.name %>" class="mh-100 rounded card-border show_image">
         <% end %>
         <%# ---------------------- %>
         <%# Calendar to booking the planete %>
-        <%= simple_form_for [@planet, @booking] do |f| %>
-          <%= f.input :start_date,
-            as: :string,
-            label: false,
-            input_html: { data: { controller: "datepicker" }, placeholder: "Selection du week-end de réservation..." }%>
+        <div style="padding-right: 10%">
+          <%= simple_form_for [@planet, @booking] do |f| %>
+            <%= f.input :start_date,
+              as: :string,
+              label: false,
+              input_html: { data: { controller: "datepicker" }, placeholder: "Selection du week-end de réservation..." }%>
             <% if user_signed_in? %>
               <%= f.submit value='Réservation'%>
             <% end %>
-        <% end %>
+          <% end %>
+        </div>
+
         <%# ---------------------- %>
       </div>
       <div >
-        <h3 class="text-center"><%= @planet.name %></h3>
+        <h3 class="text-center planet-name"><%= @planet.name %></h3>
         <p id='<%= @planet.id %>'><%= @planet.description %>...</p>
         <p class="d-flex d-row justify-content-center">
           📍

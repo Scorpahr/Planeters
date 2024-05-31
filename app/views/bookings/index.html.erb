@@ -10,8 +10,8 @@
       <div class="my-3 ">
         <div class="card h-100 shadow ">
           <div class="card-body">
-            <div class="d-flex d-row w-100">
-              <img src=<%= booking.planet.image %> alt=<%= booking.planet.name %> class="mh-10 booking_image">
+            <div class="d-flex d-row w-100 justify-content-center">
+              <img src=<%= booking.planet.image %> alt=<%= booking.planet.name %> class="mh-10 booking_image card-border">
               <div>
                 <h2 class="text-center"> <%= link_to booking.planet.name, planet_path(booking.planet), class: "none_decoration" %></h2>
                 <ul class="d-inline-flex d-row gap-5">
@@ -28,7 +28,9 @@
               </div>
               <%# Delete booking %>
               <div class="d-flex align-items-end">
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<%= link_to '🗑️', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Supprimer la réservation?"}, class: "none_decoration" %>
+                <h4>
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<%= link_to '🗑️', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Supprimer la réservation?"}, class: "none_decoration" %>
+                </h4>
               </div>
             </div>
           </div>
@@ -36,16 +38,11 @@
       </div>
     <% end %>
     <div class="my-3">
-      <div class="card shadow">
-        <div class="d-inline">
-          <h3>Prix total des réservations : </h3>
-        </div>
-        <div class="d-inline">
-          <p><%= total_price %> €</p>
-        </div>
+      <div class="card shadow px-5 py-2">
 
+        <h3>Prix total des réservations : </h3>
+        <p><%= total_price %> €</p>
 
-      </div>
     </div>
   </div>
 </div>
