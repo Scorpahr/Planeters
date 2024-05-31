@@ -1,0 +1,51 @@
+.bg-form {
+  background-color: #001c30; /* Same blue as card bg */
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.form-type {
+  width: 500px;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.button-env {
+  color: #ffffff !important;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.button-style > input {
+  color: white;
+  padding: 0;
+}
+
+#new_review {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+#new_planet {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input1 > input {
+  border-radius: 4px;
+  background-color: #001c30; /* Same blue as card bg */
+  border-style: solid;
+  border-color: #fcfbfa;
+  color: white;
+  padding: 8px 16px;
+  margin-right: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 400;
+  width: 170px;
+  height: 50px;
+}
