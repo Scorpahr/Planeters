@@ -3,9 +3,11 @@ class BookingsController < ApplicationController
   def index
     @user_id = current_user.id
     @bookings = Booking.where('user_id = ?', @user_id)
+    
   end
 
   def create
+    @review = Review.all
     @booking = Booking.new
     @planet = Planet.find(params[:planet_id])
     @user = current_user.id
@@ -18,8 +20,11 @@ class BookingsController < ApplicationController
     @booking.planet_id = @planet.id
     @booking.user_id = @user
 
-    @booking.save
-    redirect_to bookings_path
+    if @booking.save
+      redirect_to bookings_path
+    else
+      redirect_to planet_path(@planet)
+    end
   end
 
   def destroy
