@@ -19,7 +19,7 @@
               label: false,
               input_html: { data: { controller: "datepicker" }, placeholder: "Selection du week-end de réservation..." }%>
             <% if user_signed_in? %>
-              <%= f.submit value='Réservation'%>
+              <%= f.submit 'Réservation', class: 'custom-button' %>
             <% end %>
           <% end %>
         </div>
