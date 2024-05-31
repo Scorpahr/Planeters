@@ -5,17 +5,18 @@
       <div class="h-3 d-flex d-row justify-content-between">
 
 <%# Gestion de l'image la planètes %>
-            <% if @planet.photo.attached? %>
-                <%= cl_image_tag @planet.photo.key, height: 300, width: 400, crop: :fill, class: 'img-fluid mh-100 rounded' %>
-            <% else %>
-                <img src="<%= @planet.image %>" alt="<%= @planet.name %>" class="img-fluid mh-100 rounded" height=300 width=300>
-            <% end %>
+        <% if @planet.photo.attached? %>
+            <%= cl_image_tag @planet.photo.key, height: 300, width: 400, crop: :fill, class: 'img-fluid mh-100 rounded' %>
+        <% else %>
+            <img src="<%= @planet.image %>" alt="<%= @planet.name %>" class="img-fluid mh-100 rounded" height=300 width=300>
+        <% end %>
 <%# ---------------------- %>
-           <%= simple_form_for [@planet, @booking] do |f| %>
+
+          <%= simple_form_for [@planet, @booking] do |f| %>
             <%= f.input :start_date,
               as: :string,
               label: false,
-              input_html: { data: { controller: "datepicker" }, class: "d-none" }%>
+              input_html: { data: { controller: "datepicker" }, placeholder: "Selection des dates de réservation..." }%>
               <% if user_signed_in? %>
                 <%= f.submit value='Réservation'%>
               <% end %>
@@ -38,7 +39,7 @@
             <i class="fa-solid fa-money-bill"></i>
             <%= @planet.price %>
           </li>
-</div>
+        </div>
         <div class="test" style="width: 100%; height: 400px;"
           data-controller="map"
           id="map"
@@ -46,8 +47,6 @@
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
         </ul>
-
-
       </div>
     </div>
   </div>
@@ -71,40 +70,6 @@
         </div>
       </div>
     <% end %>
-    <div class="col-sm-4 my-3">
-        <div class="card h-100 shadow">
-          <div class="card-body">
-            <div >
-              <p>On peut manger de la bonne choucroutesur cette planète!</p>
-              <ul class="d-flex d-row justify-content-between">
-                <li style="list-style: none">
-                user
-                </li>
-                <li  style="list-style: none">
-                  5⭐
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 my-3">
-        <div class="card h-100 shadow">
-          <div class="card-body">
-            <div >
-              <p>Epoustouflant!</p>
-              <ul class="d-flex d-row justify-content-between">
-                <li style="list-style: none">
-                anonym
-                </li>
-                <li  style="list-style: none">
-                  4⭐
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
   </div>
   <% if user_signed_in? %>
   <div data-controller="toggle" class="mt-5">

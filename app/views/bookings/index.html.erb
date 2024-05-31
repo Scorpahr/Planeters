@@ -3,6 +3,8 @@
 <div class="container">
   <div class="row">
     <h1 class="card my-3 text-center">Mes réservations</h1>
+    <%# var to calculate the total price of bookings %>
+    <% total_price = 0 %>
     <%# Send the different booking  %>
     <% @bookings.each do |booking| %>
       <div class="my-3 ">
@@ -20,6 +22,9 @@
                     <h4>Fin de la réservation :</h4><%= booking.end_date %>
                   </li>
                 </ul>
+                <p class="text-center">Prix de la réservation : <%= booking.total_price %> €</p>
+                <%# add the price of the current booking to the total price %>
+                <% total_price += booking.total_price %>
               </div>
               <%# Delete booking %>
               <div class="d-flex align-items-end">
@@ -30,5 +35,17 @@
         </div>
       </div>
     <% end %>
+    <div class="my-3">
+      <div class="card shadow">
+        <div class="d-inline">
+          <h3>Prix total des réservations : </h3>
+        </div>
+        <div class="d-inline">
+          <p><%= total_price %> €</p>
+        </div>
+
+
+      </div>
+    </div>
   </div>
 </div>

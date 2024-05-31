@@ -5,10 +5,10 @@ import flatpickr from "flatpickr";
 export default class extends Controller {
   connect() {
     flatpickr(this.element, { inline: true,
-      enableTime: true,
-      dateFormat: "Y-m-d H:i",
+      dateFormat: "Y-m-d",
       minDate: "today",
       mode: "range",
       })
   }
+
 }
