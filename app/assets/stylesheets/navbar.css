@@ -2,6 +2,10 @@
   justify-content: space-between;
   background: white;
   border-bottom: 1px solid #555555;
+  position: sticky;
+  top: 20px;
+  position: initial;
+  z-index: 10;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -20,4 +24,9 @@
 
 .nav-item .active {
   justify-content: space-between;
+}
+
+#navbar {
+  position: sticky;
+  top: 0;
 }

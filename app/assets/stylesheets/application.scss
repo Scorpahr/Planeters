@@ -14,11 +14,14 @@
  *= require_self
  */
 
-@import 'body';
-@import 'components/image';
-@import 'components/planets';
-@import 'card-border';
-@import 'card-body';
+$whiteblue: #dafffb;
+
+@import "body";
+@import "components/image";
+@import "components/planets";
+@import "card-border";
+@import "card-body";
+@import "components/button-style";
 @import 'message-container';
 @import 'features-container';
 @import 'feature-text';
